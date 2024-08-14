@@ -14,7 +14,7 @@ import (
 )
 
 func initDB() *gorm.DB {
-	// Retrieve database connection details from environment variables
+	// Retrieve database connection details from environment variabless
 	user := os.Getenv("POSTGRES_USER")
 	password := os.Getenv("POSTGRES_PASSWORD")
 	dbname := os.Getenv("POSTGRES_DB")
