@@ -16,8 +16,8 @@ RUN go mod download
 # Copy the rest of the application code
 COPY . .
 
-# Build the Go application
-RUN go build -o blogs-service
+# Build the Go application for Linux
+RUN GOOS=linux GOARCH=amd64 go build -o blogs-service
 
 # Use a minimal base image for the final stage
 FROM alpine:latest
@@ -32,4 +32,4 @@ COPY --from=builder /app/blogs-service .
 EXPOSE 8080
 
 # Define the command to run the application
-CMD [ "./blogs-service", "--help" ]
+CMD [ "./blogs-service" ]
