@@ -11,6 +11,7 @@ import (
 	"github.com/gorilla/mux"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"os"
 )
 
 func initDB() *gorm.DB {
