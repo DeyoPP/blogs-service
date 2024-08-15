@@ -38,6 +38,14 @@ func initDB() *gorm.DB {
 func startServer(blogHandler *handler.BlogHandler) {
 	router := mux.NewRouter()
 
+	router.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	}).Methods("GET")
+	
+	router.HandleFunc("/status", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	}).Methods("GET")
+	
 	router.HandleFunc("/blogs", blogHandler.CreateBlog).Methods("POST")
 	router.HandleFunc("/",  writte)
 
