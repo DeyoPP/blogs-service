@@ -42,7 +42,7 @@ func startServer(blogHandler *handler.BlogHandler) {
 	router.HandleFunc("/",  writte)
 
 	println("Server starting")
-	log.Fatal(http.ListenAndServe(":8081", router))
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
 
 func writte(w http.ResponseWriter, r *http.Request) {
